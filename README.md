@@ -1,1 +1,1 @@
-# diggimedia
+# Diggi Media
