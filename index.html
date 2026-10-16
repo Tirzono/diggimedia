@@ -1,25 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diggi Media</title>
+    <title>Diggi Media – websites, web applications and mobile apps</title>
+    <meta name="description" content="Diggi Media designs and builds websites, web applications and mobile applications.">
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        body {
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            font-family: system-ui, sans-serif;
+            line-height: 1.5;
+            color: #222;
             background-color: #fff;
         }
-        img {
-            max-width: 100%;
-            max-height: 100%;
+        header { text-align: center; }
+        .logo {
+            width: 16rem;
+            max-width: 80%;
+            height: auto;
+        }
+        .intro { font-size: 1.15rem; }
+        h2 { font-size: 1.2rem; margin-top: 2.5rem; }
+        h3 { font-size: 1rem; margin: 1.5rem 0 0.25rem; }
+        h3 + p { margin-top: 0; }
+        a { color: inherit; }
+        .email { font-size: 1.15rem; font-weight: 600; }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Diggi Media">
+    <header>
+        <img class="logo" src="logo.png" alt="Diggi Media" width="400" height="324">
+    </header>
+
+    <main>
+        <p class="intro">Diggi Media designs and builds software for the web and for your phone.
+        Whether you need a fresh website, an application to run part of your business, or an app
+        in the App Store and Google Play, I take it from first idea to launch, and look after it afterwards.</p>
+
+        <h2>What I do</h2>
+
+        <h3>Websites</h3>
+        <p>Fast, clean websites that work well on every screen size and are easy to keep up to date,
+        from a single page to a full company site.</p>
+
+        <h3>Web applications</h3>
+        <p>Bespoke online tools, portals and dashboards that fit the way you work, built to be
+        reliable, secure and ready to grow with you.</p>
+
+        <h3>Mobile applications</h3>
+        <p>Apps for iPhone and Android, from the first design through to publishing in the App Store
+        and Google Play, and updates after release.</p>
+
+        <h2>Get in touch</h2>
+        <p>Have a project in mind, or not quite sure yet what you need? Drop me a line and I will
+        get back to you to talk it through.</p>
+        <p><a class="email" id="email" href="mailto:info@diggimedia.nl">info@diggimedia.nl</a></p>
+    </main>
+
+    <footer>
+        &copy; <span id="year">2026</span> Diggi Media
+    </footer>
+
+    <script>
+        // The same site is served on diggimedia.nl, .net and .co.uk; show the
+        // address that belongs to the domain being visited, .nl otherwise.
+        (function () {
+            var host = location.hostname;
+            var domains = ['diggimedia.co.uk', 'diggimedia.net', 'diggimedia.nl'];
+            var domain = 'diggimedia.nl';
+            for (var i = 0; i < domains.length; i++) {
+                if (host === domains[i] || host.slice(-(domains[i].length + 1)) === '.' + domains[i]) {
+                    domain = domains[i];
+                    break;
+                }
+            }
+            var email = 'info@' + domain;
+            var link = document.getElementById('email');
+            link.href = 'mailto:' + email;
+            link.textContent = email;
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
